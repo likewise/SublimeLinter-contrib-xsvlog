@@ -2,7 +2,7 @@
 # linter.py
 # Linter for SublimeLinter3, a code checking framework for Sublime Text 3
 #
-# Modified from VHDL to Verilog by Leon Woestenberg
+# Modified from VHDL to Verilog to SystemVerilog by Leon Woestenberg
 # Original:
 # Written by Bruno JJE
 # Copyright (c) 2015 Bruno JJE
@@ -10,21 +10,21 @@
 # License: MIT
 #
 
-"""This module exports the Xvlog plugin class."""
+"""This module exports the Xsvlog plugin class."""
 
 from SublimeLinter.lint import Linter
 
 
-class Xvlog(Linter):
+class Xsvlog(Linter):
 
     """Provides an interface to xvlog (from Xilinx Vivado Simulator)."""
 
-    syntax = 'verilog'
+    syntax = 'systemverilog'
     cmd = 'xvlog @'
-    version_args = '--version --nolog'
+    version_args = '-sv --version --nolog'
     version_re = r'Vivado Simulator (?P<version>\d+\.\d+)'
     version_requirement = '>= 2014.4'
-    tempfile_suffix = 'v'
+    tempfile_suffix = 'sv'
 
     # Here is a sample xvhdl error output:
     # ----8<------------
