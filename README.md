@@ -1,5 +1,9 @@
-SublimeLinter-contrib-xvhdl
+SublimeLinter-contrib-xvlog
 ================================
+
+Work/test in progress 4-Jun-2015 -- Leon Woestenberg
+
+Simple modification from the original xvhdl to xvlog.
 
 [![Build Status](https://travis-ci.org/BrunoJJE/SublimeLinter-contrib-xvhdl.svg?branch=master)](https://travis-ci.org/BrunoJJE/SublimeLinter-contrib-xvhdl)
 
