@@ -13,18 +13,18 @@
 """This module exports the Xsvlog plugin class."""
 
 from SublimeLinter.lint import Linter
-
+import re
 
 class Xsvlog(Linter):
 
     """Provides an interface to xvlog (from Xilinx Vivado Simulator)."""
 
     syntax = 'systemverilog'
-    cmd = 'xvlog @'
-    version_args = '-sv --version --nolog'
+    cmd = 'xvlog -sv @'
+    version_args = '--version --nolog'
     version_re = r'Vivado Simulator (?P<version>\d+\.\d+)'
     version_requirement = '>= 2014.4'
-    tempfile_suffix = 'sv'
+    #tempfile_suffix = 'sv'
 
     # Here is a sample xvhdl error output:
     # ----8<------------
@@ -47,7 +47,18 @@ class Xsvlog(Linter):
 
         match, line, col, error, warning, message, near = super().split_match(match)
 
+        # near XXX
+        near_match = re.search(r'.*near (?P<near>\w+).*', message)
+        if near_match:
+            near = near_match.group('near')
+        else:
+            # XXX is not declared
+            near_match = re.search(r'(?P<near>\w+) is not declared.*', message)
+            if near_match:
+                near = near_match.group('near')
+
+
         if match:
-            message = '[xvlog] ' + message
+            message = '[xsvlog] ' + message
 
         return match, line, col, error, warning, message, near
