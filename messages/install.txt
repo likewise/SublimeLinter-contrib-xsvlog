@@ -1,10 +1,10 @@
-SublimeLinter-contrib-xvhdl
+SublimeLinter-contrib-xvlog
 -------------------------------
-This linter plugin for SublimeLinter provides an interface to xvhdl.
+This linter plugin for SublimeLinter provides an interface to xvlog.
 
 ** IMPORTANT! **
 
 Before this plugin will activate, you *must*
 follow the installation instructions here:
 
-https://github.com/BrunoJJE/SublimeLinter-contrib-xvhdl
+https://github.com/likewise/SublimeLinter-contrib-xvlog
